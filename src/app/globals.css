@@ -21,7 +21,7 @@ body {
 }
 
 .hero-bg {
-  background-image: url('/hero-section/hero-image.png');
+  background-image: url('/hero-section/hero-image.jpg');
 }
 
 .images img {
@@ -31,7 +31,6 @@ body {
 .images img {
   transform: 0.5s ease-in-out;
 }
-
 
 
 .mobile-image {

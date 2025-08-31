@@ -69,8 +69,8 @@ const WhoWeAre = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center relative z-10">
-          <p className="text-base sm:text-lg uppercase text-red-500 mb-6 sm:mb-10 font-sans">
-            Who We Are
+          <p className="text-base sm:text-lg uppercase text-black font-bold mb-6 sm:mb-10 font-sans">
+            Wer wir sind
           </p>
           <TextReveal
             as="h2"
@@ -88,22 +88,6 @@ const WhoWeAre = () => {
               About Us
             </ButtonAnimation>
           </div>
-        </div>
-        
-        <div
-          className="absolute inset-0 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-12 justify-center sm:items-center z-10 px-10 sm:px-32 py-10"
-          ref={cardContainerRef}
-        >
-          {cardImage.map((image) => (
-            <Image
-              src={image.src}
-              key={image.id}
-              alt={`who-we-are-${image.id}`}
-              width={180}
-              height={200}
-              className={`${image.id % 2 === 0 ? "even" : "odd"}`}
-            />
-          ))}
         </div>
       </div>
     </div>

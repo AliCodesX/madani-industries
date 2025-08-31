@@ -7,7 +7,9 @@ const ButtonVariants = cva("button", {
   variants: {
     variant: {
       heroSectionButton:
-        "px-8 py-4 bg-white text-black hover:bg-gray-50 rounded-full text-lg",
+        "px-8 py-4 bg-white text-black hover:bg-white rounded-full text-lg shadow-lg ",
+      heroSectionOutlineButton:
+        "px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-black rounded-full text-lg shadow-lg font-sans",
       contactUsButton: "bg-black text-white px-8 py-3 rounded-full",
       commonButton:
         "bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 font-sans",
