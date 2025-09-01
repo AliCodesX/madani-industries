@@ -84,8 +84,8 @@ const WhoWeAre = () => {
           </TextReveal>
 
           <div className="mt-12 sm:mt-16">
-            <ButtonAnimation className="inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
-              About Us
+            <ButtonAnimation variant="aboutButton">
+                Über uns
             </ButtonAnimation>
           </div>
         </div>

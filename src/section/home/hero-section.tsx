@@ -19,7 +19,7 @@ const HeroSection = () => {
                 Madani - Industries ihr Partner für zuverlässige industrielle Dienstleistungen
               </TextReveal>
               <div className="transform hover:scale-105 transition-transform duration-300">
-                <ButtonAnimation variant="heroSectionButton">Get Started</ButtonAnimation>
+                <ButtonAnimation variant="heroSectionButton">Mehr erfahren</ButtonAnimation>
               </div>
             </div>
           </div>

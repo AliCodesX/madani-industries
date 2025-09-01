@@ -28,7 +28,7 @@ interface ServiceItem {
 const NAV_ITEMS: NavItem[] = [
     { label: "Home", href: "#home" },
     { label: "Services", href: "#services", hasDropdown: true },
-    { label: "FAQ", href: "#faq" },
+    { label: "Über uns", href: "#faq" },
     { label: "Kontakt", href: "#contact" },
 ];
 

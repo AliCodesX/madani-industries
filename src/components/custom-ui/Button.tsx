@@ -6,8 +6,9 @@ import React from "react";
 const ButtonVariants = cva("button", {
   variants: {
     variant: {
+      aboutButton: "inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors uppercase shadow-lg",
       heroSectionButton:
-        "px-8 py-4 bg-white text-black hover:bg-white rounded-full text-lg shadow-lg ",
+        "px-8 py-4 bg-white text-black hover:bg-white rounded-full text-lg shadow-lg uppercase font-sans",
       heroSectionOutlineButton:
         "px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-black rounded-full text-lg shadow-lg font-sans",
       contactUsButton: "bg-black text-white px-8 py-3 rounded-full",
