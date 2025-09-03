@@ -7,7 +7,6 @@ export interface ContactFormValues {
   firstName: string;
   lastName?: string;
   email: string;
-  location?: string;
   message: string;
 }
 

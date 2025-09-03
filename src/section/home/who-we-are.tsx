@@ -78,9 +78,8 @@ const WhoWeAre = () => {
             stagger={0.1}
             duration={0.6}
           >
-            We are a next-generation platform combining AI-driven property
-            analytics and blockchain-secured transactions to revolutionize the
-            real estate investment process.
+            Madani Industries GmbH – Ihr Partner für industrielle Dienstleistungen, die bewegen. Wir sorgen dafür
+            dass Ihre Projekte effizient, sicher und termingerecht zum Erfolg werden.
           </TextReveal>
 
           <div className="mt-12 sm:mt-16">

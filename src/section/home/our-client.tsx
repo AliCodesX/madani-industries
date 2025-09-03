@@ -95,7 +95,7 @@ const OurClient = () => {
     <div className="bg-white py-16 px-4 sm:px-6 lg:px-8" ref={clientRef}>
       <div className="max-w-7xl mx-auto">
         <TextReveal variant="clientTitle" className="text-center">
-          What Our Clients Say
+          Was unsere Kunden sagen
         </TextReveal>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-10">
           <div

@@ -1,10 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { FaInstagram } from "react-icons/fa";
-import { FiFacebook } from "react-icons/fi";
-import { LuTwitter } from "react-icons/lu";
+import {FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter} from "react-icons/fa";
 import { useForm, SubmitHandler } from "react-hook-form";
 import TextareaAutosize from "react-textarea-autosize";
 import { ContactFormValues } from "@/types/home/types";
@@ -22,7 +19,6 @@ const ContactUs = () => {
   const {
     register,
     handleSubmit,
-    // formState: { errors },
     reset,
   } = useForm<ContactFormValues>();
 
@@ -74,39 +70,34 @@ const ContactUs = () => {
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
         <div className="space-y-8 font-sans">
           <Typography as="h1" variant="bulletTitle">
-            &bull; Contact Us
+            &bull; Kontaktieren Sie uns
           </Typography>
           <div>
             <TextReveal className="text-xl md:text-4xl font-normal text-gray-900 mb-2">
-              Complete This Form
+              Füllen Sie das Formular aus,
             </TextReveal>
             <TextReveal className="text-2xl md:text-4xl font-normal text-gray-900">
-              To Connect Our Team
+              um mit uns in Kontakt zu treten
             </TextReveal>
           </div>
           <div className="space-y-4">
-            <p className="text-lg font-normal text-black">Follow Us</p>
+            <p className="text-lg font-normal text-black">Folgen sie uns</p>
             <div className="flex space-x-4 text-black">
+              <Link href="#">
+                <FaFacebookF className="w-8 h-8 hover:text-gray-700 cursor-pointer" />
+              </Link>
+              <Link href="#">
+                <FaTwitter className="w-8 h-8 hover:text-gray-700 cursor-pointer" />
+              </Link>{" "}
               <Link href="#">
                 <FaInstagram className="w-8 h-8 hover:text-gray-700 cursor-pointer" />
               </Link>
               <Link href="#">
-                <FiFacebook className="w-8 h-8 hover:text-gray-700 cursor-pointer" />
-              </Link>{" "}
-              <Link href="#">
-                <LuTwitter className="w-8 h-8 hover:text-gray-700 cursor-pointer" />
+                <FaLinkedinIn className="w-8 h-8 hover:text-gray-700 cursor-pointer" />
               </Link>
             </div>
           </div>
-          <div className="overflow-hidden">
-            <Image
-              src="/contactus-image.png"
-              alt="contact-us"
-              width={450}
-              height={100}
-              ref={contactImageRef}
-            />
-          </div>
+
         </div>
         <form
           onSubmit={handleSubmit(onsubmit)}
@@ -117,38 +108,32 @@ const ContactUs = () => {
             <input
               {...register("firstName", { required: true })}
               type="text"
-              placeholder="First Name"
+              placeholder="Vorname"
               className="w-full px-4 py-3 rounded-lg bg-gray-100"
             />
             <input
               {...register("lastName")}
               type="text"
-              placeholder="Last Name"
+              placeholder="Nachname"
               className="w-full px-4 py-3 rounded-lg bg-gray-100"
             />
           </div>
           <input
             {...register("email", { required: true })}
             type="email"
-            placeholder="Email Address"
+            placeholder="E-Mail Addresse"
             className="w-full px-4 py-3 rounded-lg bg-gray-100 form-item"
           />
-          <select
-            className="w-full px-4 py-3 rounded-lg bg-gray-100 form-item"
-            {...register("location")}
-          >
-            <option value="">Location</option>
-            <option value="surat">Surat</option>
-          </select>
+
           <TextareaAutosize
             {...register("message", { required: true })}
             className="w-full px-4 py-6 rounded-lg bg-gray-100 form-item"
-            placeholder="Message..."
+            placeholder="Nachricht..."
             minRows={10}
           />
           <div className="flex justify-start w-full h-full">
             <ButtonAnimation variant="contactUsButton" type="submit">
-              Submit
+              Absenden
             </ButtonAnimation>
           </div>
         </form>

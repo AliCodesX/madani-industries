@@ -27,6 +27,7 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
     const imageRefs = useRef<HTMLDivElement[]>([]);
     const mobileImageRefs = useRef<HTMLDivElement[]>([]);
     const [isMobile, setIsMobile] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     useEffect(() => {
         const checkMobile = () => {
@@ -38,128 +39,117 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
         return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
+    const updateCardStack = (refs: HTMLDivElement[], currentIndex: number) => {
+        refs.forEach((card, index) => {
+            if (!card) return;
+
+            if (index < currentIndex) {
+                // Karten, die bereits vorbei sind - komplett verschwinden lassen
+                gsap.to(card, {
+                    y: isMobile ? -200 : -400,
+                    rotation: -45,
+                    opacity: 0,
+                    scale: 0.8,
+                    duration: 0.6,
+                    ease: "power2.out",
+                    transformOrigin: "bottom left",
+                    zIndex: 1
+                });
+            } else if (index === currentIndex) {
+                // Aktuelle Karte - voll sichtbar
+                gsap.to(card, {
+                    y: 0,
+                    rotation: 0,
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.6,
+                    ease: "power2.out",
+                    transformOrigin: "center",
+                    zIndex: 50
+                });
+            } else {
+                // Karten, die noch kommen - im Stack, leicht versetzt
+                gsap.to(card, {
+                    y: 0,
+                    rotation: 0,
+                    opacity: index === currentIndex + 1 ? 0.5 : 0.1, // Nächste Karte etwas sichtbarer
+                    scale: 1 - (index - currentIndex) * 0.05,
+                    duration: 0.4,
+                    ease: "power2.out",
+                    transformOrigin: "center",
+                    zIndex: items.length - index
+                });
+            }
+        });
+    };
+
     useEffect(() => {
         if (!containerRef.current) return;
 
         const ctx = gsap.context(() => {
+            // Initiale Stack-Setup - alle Karten übereinander
             if (isMobile) {
-                mobileImageRefs.current.forEach((img, index) => {
-                    gsap.set(img, { opacity: index === 0 ? 1 : 0, scale: index === 0 ? 1 : 0.95 });
-                });
-
-                contentRefs.current.forEach((content, index) => {
-                    ScrollTrigger.create({
-                        trigger: content,
-                        start: "top bottom-=100px",
-                        end: "bottom top+=100px",
-                        onEnter: () => {
-                            gsap.to(mobileImageRefs.current[index], {
-                                opacity: 1,
-                                scale: 1,
-                                duration: 0.8,
-                                ease: "power2.out"
-                            });
-                            mobileImageRefs.current.forEach((img, i) => {
-                                if (i !== index) {
-                                    gsap.to(img, {
-                                        opacity: 0,
-                                        scale: 0.95,
-                                        duration: 0.6
-                                    });
-                                }
-                            });
-                        },
-                        onEnterBack: () => {
-                            gsap.to(mobileImageRefs.current[index], {
-                                opacity: 1,
-                                scale: 1,
-                                duration: 0.8,
-                                ease: "power2.out"
-                            });
-                            mobileImageRefs.current.forEach((img, i) => {
-                                if (i !== index) {
-                                    gsap.to(img, {
-                                        opacity: 0,
-                                        scale: 0.95,
-                                        duration: 0.6
-                                    });
-                                }
-                            });
-                        }
+                mobileImageRefs.current.forEach((card, index) => {
+                    gsap.set(card, {
+                        opacity: index === 0 ? 1 : index === 1 ? 0.5 : 0.1,
+                        y: 0,
+                        rotation: 0,
+                        scale: 1 - index * 0.05,
+                        zIndex: items.length - index
                     });
-
-                    // Text disappear Animation für Mobile
-                    gsap.fromTo(content,
-                        { y: 60, opacity: 0 },
-                        {
-                            y: 0,
-                            opacity: 1,
-                            duration: 1,
-                            ease: "power2.out",
-                            scrollTrigger: {
-                                trigger: content,
-                                start: "top bottom-=50px",
-                                end: "top top-=50px",
-                                toggleActions: "play none none reverse"
-                            }
-                        }
-                    );
                 });
             } else {
-                imageRefs.current.forEach((img, index) => {
-                    gsap.set(img, { opacity: index === 0 ? 1 : 0 });
-                });
-
-                contentRefs.current.forEach((content, index) => {
-                    ScrollTrigger.create({
-                        trigger: content,
-                        start: "top bottom-=200px",
-                        end: "bottom top+=200px",
-                        onEnter: () => {
-                            gsap.to(imageRefs.current[index], {
-                                opacity: 1,
-                                duration: 0.7,
-                                ease: "power2.out"
-                            });
-                            imageRefs.current.forEach((img, i) => {
-                                if (i !== index) {
-                                    gsap.to(img, { opacity: 0, duration: 0.5 });
-                                }
-                            });
-                        },
-                        onEnterBack: () => {
-                            gsap.to(imageRefs.current[index], {
-                                opacity: 1,
-                                duration: 0.7,
-                                ease: "power2.out"
-                            });
-                            imageRefs.current.forEach((img, i) => {
-                                if (i !== index) {
-                                    gsap.to(img, { opacity: 0, duration: 0.5 });
-                                }
-                            });
-                        }
+                imageRefs.current.forEach((card, index) => {
+                    gsap.set(card, {
+                        opacity: index === 0 ? 1 : index === 1 ? 0.5 : 0.1,
+                        y: 0,
+                        rotation: 0,
+                        scale: 1 - index * 0.05,
+                        zIndex: items.length - index
                     });
                 });
-
-                contentRefs.current.forEach((content) => {
-                    gsap.fromTo(content,
-                        { y: 60, opacity: 0 },
-                        {
-                            y: 0,
-                            opacity: 1,
-                            duration: 1,
-                            ease: "power2.out",
-                            scrollTrigger: {
-                                trigger: content,
-                                start: "top bottom-=50px",
-                                end: "top top+=50px",
-                                toggleActions: "play none none reverse"
-                            }
-                        }
-                    );
-                });
             }
+
+            contentRefs.current.forEach((content, index) => {
+                ScrollTrigger.create({
+                    trigger: content,
+                    start: isMobile ? "top center" : "top center",
+                    end: isMobile ? "bottom center" : "bottom center",
+                    onEnter: () => {
+                        setActiveIndex(index);
+                        if (isMobile) {
+                            updateCardStack(mobileImageRefs.current, index);
+                        } else {
+                            updateCardStack(imageRefs.current, index);
+                        }
+                    },
+                    onEnterBack: () => {
+                        setActiveIndex(index);
+                        if (isMobile) {
+                            updateCardStack(mobileImageRefs.current, index);
+                        } else {
+                            updateCardStack(imageRefs.current, index);
+                        }
+                    }
+                });
+
+                // Text Animation
+                gsap.fromTo(content,
+                    { y: 60, opacity: 0 },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: content,
+                            start: "top bottom-=50px",
+                            end: isMobile ? "top top-=50px" : "top top+=50px",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
         }, containerRef);
 
         return () => {
@@ -171,7 +161,7 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
     if (isMobile) {
         return (
             <div ref={containerRef} className="bg-white">
-                {/* Mobile Header - Sticky und näher am Container */}
+                {/* Mobile Header */}
                 <div className="sticky top-0 z-50 bg-white pt-4 pb-2 px-6">
                     <p className="text-base sm:text-lg uppercase text-black font-bold font-sans text-center">
                         {headerTitle}
@@ -179,16 +169,20 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
                 </div>
 
                 <div className="relative">
+                    {/* Mobile Sticky Stack Container */}
                     <div className="sticky top-16 z-20 px-6 py-2">
-                        <div className="relative w-full max-w-xs mx-auto h-56">
+                        <div className="relative w-full max-w-xs mx-auto h-64 flex items-center justify-center">
                             {items.map((item, index) => (
                                 <div
                                     key={index}
                                     ref={(el) => {
                                         if (el) mobileImageRefs.current[index] = el;
                                     }}
-                                    className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden shadow-lg bg-gray-50"
-                                    style={{ transformOrigin: 'center center' }}
+                                    className="absolute w-full h-full rounded-2xl overflow-hidden shadow-lg"
+                                    style={{
+                                        transformOrigin: 'center center',
+                                        willChange: 'transform, opacity'
+                                    }}
                                 >
                                     {item.content}
                                 </div>
@@ -225,7 +219,7 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
     // Desktop Darstellung
     return (
         <div ref={containerRef} className="bg-white">
-            {/* Desktop Header - Sticky und näher am Container */}
+            {/* Desktop Header */}
             <div className="sticky top-0 z-50 bg-white pt-6 pb-4">
                 <div className="max-w-7xl mx-auto px-6">
                     <p className="text-base sm:text-lg uppercase text-black font-bold font-sans text-center">
@@ -258,14 +252,18 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
 
                 <div className="w-1/2">
                     <div className="sticky top-16 h-screen flex items-center justify-center p-8">
-                        <div className="relative w-full max-w-lg h-96">
+                        {/* Desktop Stack Container */}
+                        <div className="relative w-full max-w-lg aspect-square flex items-center justify-center">
                             {items.map((item, index) => (
                                 <div
                                     key={index}
                                     ref={(el) => {
                                         if (el) imageRefs.current[index] = el;
                                     }}
-                                    className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden shadow-xl bg-gray-50"
+                                    className="absolute w-full h-full rounded-2xl overflow-hidden shadow-xl"
+                                    style={{
+                                        willChange: 'transform, opacity'
+                                    }}
                                 >
                                     {item.content}
                                 </div>
