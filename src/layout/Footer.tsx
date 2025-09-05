@@ -6,19 +6,19 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaXing } from "react
 
 const Footer = () => {
   return (
-      <footer className="bg-[#f2f2f2] py-16 px-4 md:px-8">
+      <footer className="bg-black py-16 px-4 md:px-8 text-white">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo div */}
           <div className="space-y-4 md:space-y-6 font-sans">
             <div className="flex items-center space-x-2">
               <TextPopUpOrDown
                   as="h2"
-                  className="text-2xl text-black font-medium"
+                  className="text-2xl font-medium"
               >
                 Logo
               </TextPopUpOrDown>
             </div>
-            <TextPopUpOrDown as="p" className="text-gray-600">
+            <TextPopUpOrDown as="p">
               Ihre Träume verwirklichen
               <br />
               Mit unseren Dienstleistungen.
@@ -29,7 +29,7 @@ const Footer = () => {
           <div className="font-sans">
             <TextPopUpOrDown
                 as="h2"
-                className="text-2xl text-black font-medium mb-8"
+                className="text-2xl font-medium mb-8"
             >
               Dienstleistungen
             </TextPopUpOrDown>
@@ -44,7 +44,7 @@ const Footer = () => {
                   <li key={item}>
                     <Link
                         href="#"
-                        className="text-gray-500 hover:text-black transition-colors"
+                        className="text-white hover:text-white transition-colors"
                     >
                       <TextPopUpOrDown>{item}</TextPopUpOrDown>
                     </Link>
@@ -57,7 +57,7 @@ const Footer = () => {
           <div className="font-sans">
             <TextPopUpOrDown
                 as="h2"
-                className="text-2xl text-black font-medium mb-8"
+                className="text-2xl font-medium mb-8"
             >
               Rechtliches
             </TextPopUpOrDown>
@@ -66,7 +66,7 @@ const Footer = () => {
                   <li key={item}>
                     <Link
                         href="#"
-                        className="text-gray-500 hover:text-black transition-colors"
+                        className="text-white hover:text-white transition-colors"
                     >
                       <TextPopUpOrDown>{item}</TextPopUpOrDown>
                     </Link>
@@ -79,35 +79,35 @@ const Footer = () => {
           <div className="font-sans">
             <TextPopUpOrDown
                 as="h2"
-                className="text-2xl text-black font-medium mb-8"
+                className="text-2xl font-medium mb-8"
             >
               Kontakt
             </TextPopUpOrDown>
 
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
-                <MdLocationOn className="text-black w-5 h-5 mt-1 flex-shrink-0" />
-                <TextPopUpOrDown as="p" className="text-gray-600 text-sm">
+                <MdLocationOn className="text-white w-5 h-5 mt-1 flex-shrink-0" />
+                <TextPopUpOrDown as="p" className="text-white text-sm">
                   Parkallee 117<br />
                   28209 Bremen
                 </TextPopUpOrDown>
               </div>
 
               <div className="flex items-center space-x-3">
-                <MdPhone className="text-black w-5 h-5 flex-shrink-0" />
+                <MdPhone className="text-white w-5 h-5 flex-shrink-0" />
                 <Link
                     href="tel:04234756270"
-                    className="text-gray-600 hover:text-black transition-colors text-sm"
+                    className="text-white hover:text-white transition-colors text-sm"
                 >
                   <TextPopUpOrDown>04234 756270</TextPopUpOrDown>
                 </Link>
               </div>
 
               <div className="flex items-center space-x-3">
-                <MdMail className="text-black w-5 h-5 flex-shrink-0" />
+                <MdMail className="text-white w-5 h-5 flex-shrink-0" />
                 <Link
                     href="mailto:info@example.de"
-                    className="text-gray-600 hover:text-black transition-colors text-sm"
+                    className="text-white hover:text-white transition-colors text-sm"
                 >
                   <TextPopUpOrDown>info@example.de</TextPopUpOrDown>
                 </Link>
@@ -116,7 +116,7 @@ const Footer = () => {
 
             {/* Contact Button */}
             <div className="pt-6">
-              <ButtonAnimation variant="commonButton">
+              <ButtonAnimation className="bg-white text-black" variant="commonButton">
                 Kontakt aufnehmen
               </ButtonAnimation>
             </div>
@@ -124,67 +124,67 @@ const Footer = () => {
         </div>
 
         {/* Social Media Icons - Centered */}
-        <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto mt-12 pt-8">
           <div className="flex justify-center space-x-6">
             <Link
                 href="#"
-                className="text-gray-600 hover:text-black transition-colors"
+                className="text-white hover:text-white transition-colors"
                 aria-label="Facebook"
             >
-              <FaFacebookF className="w-6 h-6" />
+              <FaFacebookF className="w-6 h-6 text-white" />
             </Link>
             <Link
                 href="#"
-                className="text-gray-600 hover:text-black transition-colors"
+                className="text-white hover:text-white transition-colors"
                 aria-label="Instagram"
             >
-              <FaInstagram className="w-6 h-6" />
+              <FaInstagram className="w-6 h-6 text-white" />
             </Link>
             <Link
                 href="#"
-                className="text-gray-600 hover:text-black transition-colors"
+                className="text-white hover:text-white transition-colors"
                 aria-label="LinkedIn"
             >
-              <FaLinkedinIn className="w-6 h-6" />
+              <FaLinkedinIn className="w-6 h-6 text-white" />
             </Link>
             <Link
                 href="#"
-                className="text-gray-600 hover:text-black transition-colors"
+                className="text-white hover:text-white transition-colors"
                 aria-label="Xing"
             >
-              <FaXing className="w-6 h-6" />
+              <FaXing className="w-6 h-6 text-white" />
             </Link>
             <Link
                 href="#"
-                className="text-gray-600 hover:text-black transition-colors"
+                className="text-white hover:text-white transition-colors"
                 aria-label="Twitter"
             >
-              <FaTwitter className="w-6 h-6" />
+              <FaTwitter className="w-6 h-6 text-white" />
             </Link>
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto mt-8 pt-8 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <TextPopUpOrDown as="p" className="text-gray-500 text-sm">
+            <TextPopUpOrDown as="p" className="text-white text-sm">
               Copyright 2025 © Ihr Unternehmen. Alle Rechte vorbehalten.
             </TextPopUpOrDown>
             <div className="flex space-x-6">
               <Link
                   href="#"
-                  className="text-gray-500 hover:text-black transition-colors text-sm"
+                  className="text-white hover:text-white transition-colors text-sm"
               >
                 <TextPopUpOrDown>Impressum</TextPopUpOrDown>
               </Link>
               <Link
                   href="#"
-                  className="text-gray-500 hover:text-black transition-colors text-sm"
+                  className="text-white hover:text-white transition-colors text-sm"
               >
                 <TextPopUpOrDown>Datenschutz</TextPopUpOrDown>
               </Link>
               <Link
                   href="#"
-                  className="text-gray-500 hover:text-black transition-colors text-sm"
+                  className="text-white hover:text-white transition-colors text-sm"
               >
                 <TextPopUpOrDown>AGB</TextPopUpOrDown>
               </Link>

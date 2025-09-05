@@ -20,6 +20,40 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Custom utility classes */
+.padding-x {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .padding-x {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .padding-x {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+.paragraph {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.hover {
+  transition: all 0.3s ease;
+}
+
+.hover:hover {
+  opacity: 0.7;
+  transform: translateY(-2px);
+}
+
 .hero-bg {
   background-image: url('/hero-section/hero-image.jpg');
 }

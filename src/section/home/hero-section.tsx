@@ -4,7 +4,7 @@ import TextReveal from "@/components/text-animation/text-reveal";
 
 const HeroSection = () => {
   return (
-      <div className="relative w-full min-h-screen">
+      <div className="relative w-full min-h-screen bg-[#0a0a0a]">
         {/* Hintergrundbild mit Opacity */}
         <div
             className="absolute inset-0 bg-no-repeat bg-cover bg-center md:bg-fixed opacity-60"
