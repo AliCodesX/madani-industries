@@ -3,7 +3,6 @@ import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/layout/Navbar";
 import Footer from "@/layout/Footer";
-import Curve from "@/components/custom-ui/Curve";
 
 // Import your Fustat font properly, making sure it's available
 // This is an example - adjust according to your actual font import
@@ -28,9 +27,7 @@ export default function RootLayout({
       <body className={`${openSans.variable} antialiased`}>
       <Navbar />
       <main>
-        <Curve backgroundColor="#00000">
           {children}
-        </Curve>
       </main>
       <Footer />
       </body>

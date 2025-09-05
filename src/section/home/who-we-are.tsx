@@ -2,7 +2,6 @@
 import { ButtonAnimation } from "@/components/text-animation/button-animation";
 import TextReveal from "@/components/text-animation/text-reveal";
 import { useGSAP } from "@gsap/react";
-import Image from "next/image";
 import { useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -10,12 +9,7 @@ import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
-const cardImage = [
-  { id: 1, src: "/who-we-are/img1.png" },
-  { id: 2, src: "/who-we-are/img2.png" },
-  { id: 3, src: "/who-we-are/img3.png" },
-  { id: 4, src: "/who-we-are/img4.png" },
-];
+
 
 const WhoWeAre = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -64,6 +58,7 @@ const WhoWeAre = () => {
 
   return (
     <div
+        id="who-we-are"
       className="bg-white relative py-20 overflow-hidden min-h-screen flex justify-center items-center"
       ref={containerRef}
     >
@@ -83,9 +78,17 @@ const WhoWeAre = () => {
           </TextReveal>
 
           <div className="mt-12 sm:mt-16">
-            <ButtonAnimation variant="aboutButton">
-                Über uns
-            </ButtonAnimation>
+              <ButtonAnimation
+                  variant="aboutButton"
+                  onClick={() => {
+                      const el = document.getElementById("services");
+                      if (el) {
+                          el.scrollIntoView({ behavior: "smooth" });
+                      }
+                  }}
+              >
+                  Mehr erfahren
+              </ButtonAnimation>
           </div>
         </div>
       </div>

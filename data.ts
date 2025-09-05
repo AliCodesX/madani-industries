@@ -137,32 +137,34 @@ export const leaders: Leader[] = [
   },
 ];
 
+
 export const clientData: ClientData[] = [
   {
     id: 1,
     description:
-      " Working with this team was an absolute pleasure.They helped me find the perfect property that matched all my needs and preferences. Their expertise and attention to detail made the entire process smooth and stress-free. I couldn't be happier with my new home! ",
+      "Die Zusammenarbeit mit Madani-Industries im Bereich Fördertechnik war ausgezeichnet. Das Team hat innovative Lösungen entwickelt und die Montage verlief reibungslos. Ihre Fachkompetenz und Zuverlässigkeit haben mich überzeugt.",
     image: "/client-section/client-1.png",
   },
   {
     id: 2,
     description:
-      "Working with this team was an absolute pleasure.They helped me find the perfect property that matched all my needs and preferences. Their expertise and attention to detail made the entire process smooth and stress-free. I couldn't be happier with my new home! ",
+      "Madani-Industries hat unsere Produktionslinie mit moderner Fördertechnik ausgestattet. Die Montage wurde termingerecht und professionell durchgeführt. Ich bin sehr zufrieden mit dem Ergebnis.",
     image: "/client-section/client-2.png",
   },
   {
     id: 3,
     description:
-      "Working with this team was an absolute pleasure.They helped me find the perfect property that matched all my needs and preferences. Their expertise and attention to detail made the entire process smooth and stress-free. I couldn't be happier with my new home! ",
+      "Dank Madani-Industries konnten wir unsere Montageprozesse deutlich optimieren. Die Beratung war kompetent und die Umsetzung erfolgte schnell und effizient. Sehr empfehlenswert!",
     image: "/client-section/client-2.png",
   },
   {
     id: 4,
     description:
-      "Working with this team was an absolute pleasure.They helped me find the perfect property that matched all my needs and preferences. Their expertise and attention to detail made the entire process smooth and stress-free. I couldn't be happier with my new home! ",
+      "Das Team von Madani-Industries hat uns bei der Installation von Förderanlagen hervorragend unterstützt. Die Zusammenarbeit war angenehm und die Qualität der Arbeit ist erstklassig.",
     image: "/client-section/client-1.png",
   },
 ];
+
 
 export const modalData: PropertyModalData[] = [
   {

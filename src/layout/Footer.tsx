@@ -19,9 +19,9 @@ const Footer = () => {
               </TextPopUpOrDown>
             </div>
             <TextPopUpOrDown as="p">
-              Ihre Träume verwirklichen
+              Madani-Industries
               <br />
-              Mit unseren Dienstleistungen.
+                Ihr Partner für Industrielle Dienstleistungen
             </TextPopUpOrDown>
           </div>
 
@@ -114,12 +114,6 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Contact Button */}
-            <div className="pt-6">
-              <ButtonAnimation className="bg-white text-black" variant="commonButton">
-                Kontakt aufnehmen
-              </ButtonAnimation>
-            </div>
           </div>
         </div>
 

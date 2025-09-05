@@ -15,17 +15,17 @@ export const navbarItems = [
     {
         id: 2,
         title: "Services",
-        href: "/services",
+        href: "/",
     },
     {
         id: 3,
         title: "Über uns",
-        href: "/ueber-uns",
+        href: "/",
     },
     {
         id: 3,
         title: "Kontakt",
-        href: "/kontakt",
+        href: "/",
     },
 
 ];

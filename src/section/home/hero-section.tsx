@@ -1,6 +1,8 @@
 "use client";
 import { ButtonAnimation } from "@/components/text-animation/button-animation";
 import TextReveal from "@/components/text-animation/text-reveal";
+import Link from "next/link";
+import whoWeAre from "@/section/home/who-we-are";
 
 const HeroSection = () => {
   return (
@@ -19,7 +21,17 @@ const HeroSection = () => {
                 Madani - Industries ihr Partner für zuverlässige industrielle Dienstleistungen
               </TextReveal>
               <div className="transform hover:scale-105 transition-transform duration-300">
-                <ButtonAnimation variant="heroSectionButton">Mehr erfahren</ButtonAnimation>
+                  <ButtonAnimation
+                      variant="heroSectionButton"
+                      onClick={() => {
+                          const el = document.getElementById("who-we-are");
+                          if (el) {
+                              el.scrollIntoView({ behavior: "smooth" });
+                          }
+                      }}
+                  >
+                      Mehr erfahren
+                  </ButtonAnimation>
               </div>
             </div>
           </div>

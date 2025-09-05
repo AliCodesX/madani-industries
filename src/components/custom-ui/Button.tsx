@@ -13,7 +13,7 @@ const ButtonVariants = cva("button", {
         "px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-black rounded-full text-lg shadow-lg font-sans",
       contactUsButton: "bg-black text-white px-8 py-3 rounded-full",
       commonButton:
-        "bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 font-sans",
+        "bg-black text-white px-6 py-2 rounded-full font-sans",
       tabButton:
         "text-black font-sans pb-4 transition-colors duration-300 ease-in-out border-b-2 border-transparent",
       filterButton:
