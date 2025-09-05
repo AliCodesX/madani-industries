@@ -1,4 +1,4 @@
-import InfiniteScroll from "@/components/home/InfiniteScroll";
+import InfiniteScroll from "@/components/extra-components/InfiniteScroll";
 
 const OurPartners = () => (
   <div className="bg-white py-8 md:py-16">

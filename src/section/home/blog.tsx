@@ -1,5 +1,5 @@
 "use client";
-import BlogCard from "@/components/home/BlogCards";
+import BlogCard from "@/components/extra-components/BlogCards";
 import Typography from "@/components/typography/Typography";
 import { Category } from "@/types/home/types";
 import { useRef, useState } from "react";
