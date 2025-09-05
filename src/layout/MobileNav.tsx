@@ -40,7 +40,7 @@ export default function MobileNav() {
                 <MenuToggleText 
                     isOpen={toggle}
                     onClick={() => setToggle(!toggle)}
-                    textColor="text-white"
+                    textColor="text-white !important "
                 />
             </div>
             <AnimatePresence mode="wait">
