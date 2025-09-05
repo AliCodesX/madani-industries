@@ -77,7 +77,7 @@ const ContactUs = () => {
               Füllen Sie das Formular aus,
             </TextReveal>
             <TextReveal className="text-2xl md:text-4xl font-normal text-gray-900">
-              um mit uns in Kontakt zu treten
+              um uns zu kontaktieren.
             </TextReveal>
           </div>
           <div className="space-y-4">
